@@ -1,13 +1,15 @@
 import telebot
-from  Token import TOKEN,PYOWM
+import os
 from telebot import types
 from pyowm.owm import OWM
 from pyowm.utils.config import get_default_config
 from pyowm.commons.exceptions import NotFoundError
 from random import randint
 from pydictionary import Dictionary
-
-
+from dotenv import load_dotenv
+load_dotenv()
+TOKEN = os.getenv("TOKEN")
+PYOWM = os.getenv("PYOWM")
 bot = telebot.TeleBot(TOKEN,parse_mode=None)
 config_dict = get_default_config()
 config_dict['language']='eng'
